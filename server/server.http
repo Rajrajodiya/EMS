@@ -1,0 +1,31 @@
+@server_HostAddress = https://localhost:7135
+
+### Login as Admin
+POST {{server_HostAddress}}/api/Auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@test.com",
+  "password": "123123"
+}
+
+### Login as Employee
+POST {{server_HostAddress}}/api/Auth/login
+Content-Type: application/json
+
+{
+  "email": "emp1@test.com",
+  "password": "123123"
+}
+
+### Get All Departments (requires auth token)
+GET {{server_HostAddress}}/api/Department
+Accept: application/json
+
+### Get All Employees (Admin only)
+GET {{server_HostAddress}}/api/Employee
+Accept: application/json
+
+### Get Leave Types
+GET {{server_HostAddress}}/api/leave/types
+Accept: application/json
